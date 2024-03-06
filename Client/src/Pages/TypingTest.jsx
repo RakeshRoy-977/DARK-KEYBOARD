@@ -7,6 +7,7 @@ const TypingTest = () => {
   const [userInput, setUserInput] = useState("");
   const [score, setScore] = useState(0);
   const [wordStatus, setWordStatus] = useState([]);
+  const [seenJokes, setSeenJokes] = useState([]);
 
   useEffect(() => {
     fetchJoke();
@@ -26,9 +27,24 @@ const TypingTest = () => {
       );
       const data = response.data;
       if (response.status === 200) {
-        const singleLineJoke = data.replace(/\n/g, " ");
-        setJoke(singleLineJoke);
-        setWordStatus(new Array(singleLineJoke.split(" ").length).fill(null));
+        console.log(data);
+        // Remove symbols from joke
+        const cleanJoke = data.replace(/[^\w\s]/gi, "");
+        // Improve singleLineJoke conversion
+        const singleLineJoke = cleanJoke
+          .replace(/\n/g, " ")
+          .replace(/\s+/g, " ")
+          .trim();
+        // Check if the joke is not in the list of jokes already seen by the user
+        if (!seenJokes.includes(singleLineJoke)) {
+          setJoke(singleLineJoke);
+          setWordStatus(new Array(singleLineJoke.split(" ").length).fill(null));
+          // Add the joke to the list of seen jokes
+          setSeenJokes([...seenJokes, singleLineJoke]);
+        } else {
+          // If the joke is already seen, fetch another joke
+          fetchJoke();
+        }
       } else {
         console.error("Failed to fetch joke:", data);
       }
@@ -130,7 +146,7 @@ const TypingTest = () => {
         </button>
       </div>
       <div className="flex gap-10">
-        <p className="mt-4">Your Score: {score}</p>
+        <p className="Details mt-4">Your Score: {score}</p>
         <p className="mt-4">Characters: {joke.length}</p>
       </div>
     </div>

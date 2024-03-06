@@ -48,4 +48,16 @@ const getUserScore = async (req, res) => {
   }
 };
 
-module.exports = { getJoke, UpdateScore, getUserScore };
+const getRanks = async (req, res) => {
+  try {
+    const TopUsers = await Auth_Schema.find({}, { name: 1, score: 1 })
+      .sort({ score: -1 })
+      .limit(10);
+
+    return res.json(TopUsers);
+  } catch (error) {
+    return res.status(500).json(error.message);
+  }
+};
+
+module.exports = { getJoke, UpdateScore, getUserScore, getRanks };

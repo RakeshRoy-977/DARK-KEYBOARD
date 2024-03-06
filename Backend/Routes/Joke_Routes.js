@@ -3,6 +3,7 @@ const {
   getJoke,
   UpdateScore,
   getUserScore,
+  getRanks,
 } = require("../controllers/Joke_con");
 const authMiddleware = require("../Middleware/authMiddleware");
 
@@ -15,5 +16,8 @@ route.get("/getuserscore", authMiddleware, getUserScore);
 
 //update score
 route.patch("/updatescore", authMiddleware, UpdateScore);
+
+//get All ranks
+route.get("/getranks", getRanks);
 
 module.exports = route;
