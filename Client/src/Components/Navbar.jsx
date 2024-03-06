@@ -62,32 +62,20 @@ const Navbar = () => {
             <nav aria-label="Global">
               <ul className="flex items-center gap-6 text-sm">
                 <li>
-                  <Link
-                    to="/services"
-                    className="text-gray-500 transition hover:text-gray-500/75"
-                  >
-                    {" "}
-                    Services{" "}
+                  <Link to="/Ranking" className="font-semibold">
+                    Top Ranks
                   </Link>
                 </li>
 
                 <li>
-                  <Link
-                    to="/projects"
-                    className="text-gray-500 transition hover:text-gray-500/75"
-                  >
-                    {" "}
-                    Projects{" "}
+                  <Link to="/ContactUsPage" className="font-semibold">
+                    Contact Us
                   </Link>
                 </li>
 
                 <li>
-                  <Link
-                    to="/blog"
-                    className="text-gray-500 transition hover:text-gray-500/75"
-                  >
-                    {" "}
-                    Blog{" "}
+                  <Link to="/SumitJokes" className="font-semibold">
+                    Sumit Jokes
                   </Link>
                 </li>
               </ul>

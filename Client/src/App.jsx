@@ -10,6 +10,9 @@ import TypingTest from "./Pages/TypingTest";
 import Err404 from "./Pages/Err404";
 import { useSelector } from "react-redux";
 import { selectIsLoggedIn } from "./Store/isLoggedInSlice";
+import Ranking from "./Pages/Ranking";
+import ContactUsPage from "./Pages/ContactUsPage";
+import SumitJoke from "./Pages/SumitJoke";
 
 const App = () => {
   const isLoggedin = useSelector(selectIsLoggedIn);
@@ -22,6 +25,9 @@ const App = () => {
           <Routes>
             <Route path="TypingTest" element={<TypingTest />} />
             <Route path="/" element={<HomePage />} />
+            <Route path="Ranking" element={<Ranking />} />
+            <Route path="ContactUsPage" element={<ContactUsPage />} />
+            <Route path="SumitJokes" element={<SumitJoke />} />
             <Route path="*" element={<Err404 />} />
           </Routes>
           <Footer />
@@ -33,6 +39,9 @@ const App = () => {
             <Route path="/" element={<HomePage />} />
             <Route path="signup" element={<SignUp />} />
             <Route path="login" element={<Login />} />
+            <Route path="Ranking" element={<Ranking />} />
+            <Route path="ContactUsPage" element={<ContactUsPage />} />
+            <Route path="SumitJokes" element={<SumitJoke />} />
             <Route path="*" element={<Err404 />} />
           </Routes>
           <Footer />

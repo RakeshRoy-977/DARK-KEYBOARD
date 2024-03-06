@@ -1,8 +1,12 @@
 import React, { useEffect } from "react";
 import { gsap } from "gsap";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { selectIsLoggedIn } from "../Store/isLoggedInSlice";
 
 const HomePage = () => {
+  const isloggedin = useSelector(selectIsLoggedIn);
+
   useEffect(() => {
     gsap.from(".hero", { opacity: 0, duration: 1, delay: 0.5, y: 50 });
     gsap.to(".bigText", { color: "yellow", delay: 3 });
@@ -25,7 +29,7 @@ const HomePage = () => {
             <div className="mt-8 flex flex-wrap justify-center gap-4">
               <Link
                 className="block w-full rounded border border-blue-600 bg-blue-600 px-12 py-3 text-sm font-medium text-white hover:bg-transparent hover:text-white focus:outline-none focus:ring active:text-opacity-75 sm:w-auto"
-                to={"/TypingTest"}
+                to={isloggedin ? "/TypingTest" : "/login"}
               >
                 Get Started
               </Link>
