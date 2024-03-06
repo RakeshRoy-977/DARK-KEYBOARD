@@ -26,7 +26,10 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://localhost:3003/api/login", formData);
+      const res = await axios.post(
+        "https://dark-keyboard.onrender.com/api/login",
+        formData
+      );
       // Set the received token as a cookie named 'token'
       Cookies.set("token", res.data, { expires: 30 });
       // Dispatch the setUser action with the user data received from the response

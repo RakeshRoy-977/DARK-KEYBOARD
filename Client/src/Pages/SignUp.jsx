@@ -17,7 +17,7 @@ const SignUp = () => {
     e.preventDefault();
     try {
       const res = await axios.post(
-        "http://localhost:3003/api/signup",
+        "https://dark-keyboard.onrender.com/api/signup",
         formData
       );
       // Show success toast with the message from the response

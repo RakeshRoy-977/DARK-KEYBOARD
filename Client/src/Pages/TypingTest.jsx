@@ -16,11 +16,14 @@ const TypingTest = () => {
   const fetchJoke = async () => {
     try {
       const token = Cookies.get("token");
-      const response = await axios.get("http://localhost:3003/api/getjoke", {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      const response = await axios.get(
+        "https://dark-keyboard.onrender.com/api/getjoke",
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
       const data = response.data;
       if (response.status === 200) {
         const singleLineJoke = data.replace(/\n/g, " ");
@@ -65,7 +68,7 @@ const TypingTest = () => {
     try {
       const token = Cookies.get("token");
       await axios.patch(
-        "http://localhost:3003/api/updatescore",
+        "https://dark-keyboard.onrender.com/api/updatescore",
         {},
         {
           headers: {
@@ -83,7 +86,7 @@ const TypingTest = () => {
     try {
       const token = Cookies.get("token");
       const response = await axios.get(
-        "http://localhost:3003/api/getuserscore",
+        "https://dark-keyboard.onrender.com/api/getuserscore",
         {
           headers: {
             Authorization: `Bearer ${token}`,
