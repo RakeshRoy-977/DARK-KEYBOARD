@@ -13,6 +13,9 @@ const Navbar = () => {
           </Link>
         </div>
         <div className="hidden md:flex md:space-x-4">
+          <Link to="/Ranking" className="">
+            Top Ranking
+          </Link>
           <Link to="/SumitJokes" className="">
             Submit Joke
           </Link>
@@ -68,6 +71,12 @@ const Navbar = () => {
       {isOpen && (
         <div className="md:hidden">
           <div className="px-2 pt-2 pb-4 space-y-1">
+            <Link
+              to="/Ranking"
+              className="block px-3 py-2  rounded-md hover:bg-gray-700"
+            >
+              Top Ranking
+            </Link>
             <Link
               to="/SumitJokes"
               className="block px-3 py-2  rounded-md hover:bg-gray-700"
